@@ -28,7 +28,7 @@ public class JsonDeserializer<T> implements Deserializer<T> {
 	public T deserialize(String topic, byte[] data) {
 		if (data != null) {
 			try {
-				mapper.readValue(data, classType);
+				return mapper.readValue(data, classType);
 			} catch (IOException e) {
 				throw new SerializationException("error occured while serializing :-", e);
 			}
