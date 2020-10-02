@@ -3,10 +3,10 @@ package learning.kafka.tutorial.pos.simulator.deserializers;
 import java.io.IOException;
 import java.util.Map;
 
+import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.ws.encoding.soap.DeserializationException;
 
 public class JsonDeserializer<T> implements Deserializer<T> {
 
@@ -30,7 +30,7 @@ public class JsonDeserializer<T> implements Deserializer<T> {
 			try {
 				mapper.readValue(data, classType);
 			} catch (IOException e) {
-				throw new DeserializationException("error occured while serializing :-", e);
+				throw new SerializationException("error occured while serializing :-", e);
 			}
 		}
 		return null;

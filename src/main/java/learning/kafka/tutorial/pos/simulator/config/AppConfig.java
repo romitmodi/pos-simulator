@@ -7,4 +7,5 @@ public class AppConfig {
 	public static String OFFSET_STRATEGY_EARLIEST = "earliest";
 	public static String GROUP_ID = "POS-CONSUMER-GROUP";
 	public static String[] DATA_ELEMENT = { "data/NSE05NOV2018BHAV.csv", "data/NSE06NOV2018BHAV.csv" };
+	public static String[] CONSUMER_TOPICS = { INVOICE_TOPIC };
 }

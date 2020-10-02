@@ -43,8 +43,8 @@ public class InvoiceConsumer {
 		// cater this scenario OFFSET strategy should be chosen as EARLIEST.
 		properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, AppConfig.OFFSET_STRATEGY_EARLIEST);
 
-		KafkaConsumer<String, PosInvoice> consumer = new KafkaConsumer<>(properties);
-		consumer.subscribe(Arrays.asList(AppConfig.INVOICE_TOPIC));
+		KafkaConsumer<String, PosInvoice> consumer = new KafkaConsumer<String, PosInvoice>(properties);
+		consumer.subscribe(Arrays.asList(AppConfig.CONSUMER_TOPICS));
 
 		try {
 			while (true) {
@@ -52,7 +52,6 @@ public class InvoiceConsumer {
 				records.forEach(a -> {
 					PosInvoice invoiceData = a.value();
 					logger.info(invoiceData.getInvoiceNumber() + "----" + invoiceData.toString());
-					System.out.println(invoiceData.getInvoiceNumber() + "----" + invoiceData.toString());
 				});
 			}
 		} catch (Exception exception) {

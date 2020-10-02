@@ -1,4 +1,4 @@
-package learning.kafka.tutorial.pos.simulator.custom.serializer;
+package learning.kafka.tutorial.pos.simulator.defaults.serializer;
 
 import java.time.Duration;
 import java.util.Arrays;
