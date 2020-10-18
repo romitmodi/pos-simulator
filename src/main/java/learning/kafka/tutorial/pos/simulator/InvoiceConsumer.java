@@ -51,6 +51,7 @@ public class InvoiceConsumer {
 				ConsumerRecords<String, PosInvoice> records = consumer.poll(Duration.ofMillis(100));
 				records.forEach(a -> {
 					PosInvoice invoiceData = a.value();
+					System.out.println(invoiceData.getInvoiceNumber() + "----" + invoiceData.toString());
 					logger.info(invoiceData.getInvoiceNumber() + "----" + invoiceData.toString());
 				});
 			}
